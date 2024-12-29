@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resizable Sidebar with Tabs</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- CodeMirror CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/codemirror.min.css">
+    <!-- Tema Escuro -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/theme/dracula.min.css">
+</head>
+
+<body class="dark">
+    <div class="header">
+        <div class="logo">Minha Logo</div>
+        <nav class="menu">
+            <a href="#home">Home</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </div>
+
+    <div class="layout">
+        <aside class="sidebar">
+            <h2>Navegação</h2>
+            <ul id="navigation">
+                <li><a href="#" id="monitoringTab" class="active">Monitoramento</a></li>
+                <li><a href="#" id="workspacesTab">Workspaces</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <div id="workspacesPage" class="page active">
+                <header class="topbar">
+                    <h1>Workspaces</h1>
+                    <div class="actions">
+                        <button id="toggleTheme">Switch to Light Theme</button>
+                        <button id="fetchToken">Get Access Token</button>
+                        <button id="fetchGroups">Get Workspaces</button>
+                    </div>
+                </header>
+                <div class="table-container">
+                    <table id="groupsTable">
+                        <thead>
+                            <tr>
+                                <th>Workspace ID</th>
+                                <th>Workspace Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Dados dinâmicos -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="monitoringPage" class="page hidden">
+                <header class="topbar">
+                    <h1>Monitoramento</h1>
+                </header>
+                <div class="monitoring-content">
+                    <div class="form">
+                        <label for="monitorAddress">URL:</label>
+                        <input type="text" id="monitorAddress" placeholder="Digite o endereço aqui">
+                        <button id="addAddress">Adicionar</button>
+                    </div>
+                    <div class="table-container">
+                        <table id="monitorTable">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Workspace</th>
+                                    <th>Nome do Objeto</th>
+                                    <th>Tipo</th>
+                                    <th>Link</th>
+                                    <th>Consulta</th>
+                                    <th>Retorno</th>
+                                    <th>Tags</th>
+                                    <th>Monitorar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Dados adicionados -->
+                                <tr>
+                                    <td>1</td>
+                                    <td>Workspace 1</td>
+                                    <td>Objeto A</td>
+                                    <td>Dataset</td>
+                                    <td><a href="#">Link</a></td>
+                                    <td class="consulta-column">
+                                        <span class="consulta-indicator"></span>
+                                    </td>
+                                    <td class="retorno-column">
+                                        <span class="retorno-indicator"></span>
+                                    </td>
+                                    <td class="tags-column">
+                                        <div class="tags-container">
+                                            <div class="tags-list">
+                                                <!-- Tags Dinâmicas -->
+                                            </div>
+                                            <input type="text" class="tags-input" placeholder="Adicionar tag" />
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" class="monitor-toggle" />
+                                            <span class="slider"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- Botão Exportar JSON -->
+                        <div class="export-section">
+                            <button id="exportJson" class="export-btn">Exportar para JSON</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="seasson">
+            Session Active: <span id="sessionTime">00:00:00</span>
+        </div>
+    </footer>
+
+    <!-- Modal para adicionar consulta -->
+    <div id="modal" class="hidden modal-container">
+        <div class="modal-box">
+            <header class="modal-header">
+                <h3>Adicionar Consulta</h3>
+                <button id="modalClose" class="close-btn">X</button>
+            </header>
+            <div class="modal-body">
+                <textarea id="editor"></textarea>
+            </div>
+            <footer class="modal-footer">
+                <button id="modalSave" class="save-btn">Salvar</button>
+            </footer>
+        </div>
+    </div>
+
+    <!-- CodeMirror JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/codemirror.min.js"></script>
+    <!-- Modo SQL -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/mode/sql/sql.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+
+</html>

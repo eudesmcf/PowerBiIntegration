@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\PowerBiIntegration.props" />
+</Project>

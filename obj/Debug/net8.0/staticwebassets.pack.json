@@ -1,0 +1,45 @@
+{
+  "Files": [
+    {
+      "Id": "E:\\Bibliotecas\\Eudes\\Downloads\\Treinamento\\PowerBiIntegration\\wwwroot\\Backup\\index.html",
+      "PackagePath": "staticwebassets\\Backup\\index.html"
+    },
+    {
+      "Id": "E:\\Bibliotecas\\Eudes\\Downloads\\Treinamento\\PowerBiIntegration\\wwwroot\\Backup\\scripts.js",
+      "PackagePath": "staticwebassets\\Backup\\scripts.js"
+    },
+    {
+      "Id": "E:\\Bibliotecas\\Eudes\\Downloads\\Treinamento\\PowerBiIntegration\\wwwroot\\Backup\\styles.css",
+      "PackagePath": "staticwebassets\\Backup\\styles.css"
+    },
+    {
+      "Id": "E:\\Bibliotecas\\Eudes\\Downloads\\Treinamento\\PowerBiIntegration\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "E:\\Bibliotecas\\Eudes\\Downloads\\Treinamento\\PowerBiIntegration\\wwwroot\\scripts.js",
+      "PackagePath": "staticwebassets\\scripts.js"
+    },
+    {
+      "Id": "E:\\Bibliotecas\\Eudes\\Downloads\\Treinamento\\PowerBiIntegration\\wwwroot\\styles.css",
+      "PackagePath": "staticwebassets\\styles.css"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.PowerBiIntegration.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.PowerBiIntegration.props",
+      "PackagePath": "build\\PowerBiIntegration.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.PowerBiIntegration.props",
+      "PackagePath": "buildMultiTargeting\\PowerBiIntegration.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.PowerBiIntegration.props",
+      "PackagePath": "buildTransitive\\PowerBiIntegration.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
