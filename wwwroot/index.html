@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -6,31 +7,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resizable Sidebar with Tabs</title>
     <link rel="stylesheet" href="styles.css">
-
     <!-- CodeMirror CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/codemirror.min.css">
     <!-- Tema Escuro -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/theme/dracula.min.css">
+    <!-- Icones -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
 
 <body class="dark">
-    <div class="header">
+    <!-- <div class="header">
         <div class="logo">Minha Logo</div>
-        <nav class="menu">
-            <a href="#home">Home</a>
-            <a href="#sobre">Sobre</a>
-            <a href="#contato">Contato</a>
-        </nav>
-    </div>
+    </div> -->
 
     <div class="layout">
         <aside class="sidebar">
-            <h2>Navegação</h2>
             <ul id="navigation">
-                <li><a href="#" id="monitoringTab" class="active">Monitoramento</a></li>
-                <li><a href="#" id="workspacesTab">Workspaces</a></li>
+                <!-- Ícone de menu no início da sidebar -->
+                <li>
+                    <a href="#" id="toggleSidebar" class="menu-toggle">
+                        <i class="ri-menu-fill"></i>
+                        <span class="text">Menu</span>
+                    </a>
+                </li>
+                <!-- Ícone de Monitoramento -->
+                <li>
+                    <a href="#" id="monitoringTab" class="active">
+                        <i class="ri-computer-line"></i>
+                        <span class="text">Monitoramento</span>
+                    </a>
+                </li>
+                <!-- Ícone de Workspaces -->
+                <li>
+                    <a href="#" id="workspacesTab">
+                        <i class="ri-list-view"></i>
+                        <span class="text">Workspaces</span>
+                    </a>
+                </li>
             </ul>
         </aside>
+
+
+
 
         <main class="content">
             <div id="workspacesPage" class="page active">
@@ -124,7 +142,7 @@
     </div>
 
     <footer class="footer">
-        <div class="seasson">
+        <div class="session">
             Session Active: <span id="sessionTime">00:00:00</span>
         </div>
     </footer>

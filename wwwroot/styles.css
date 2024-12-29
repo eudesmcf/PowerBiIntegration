@@ -27,21 +27,123 @@ body.light {
 }
 
 /* Barra lateral */
+/* Sidebar Responsiva com Ícones */
 .sidebar {
+    position: fixed;
+    flex-direction: column;
+    top: 20px;
+    left: 0;
     width: 250px;
-    background-color: #1e1e1e;
-    color: #d4d4d4;
+    /* Largura quando aberta */
+    height: 100%;
+    background: #252526;
+    color: white;
+    transition: width 0.4s ease;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.sidebar.closed {
+    width: 60px;
+    /* Largura quando fechada */
+}
+
+/* Ícones e texto */
+.sidebar ul {
+
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
     padding: 15px;
-    border-right: 1px solid #444444;
-    font-size: 14px;
-    overflow-y: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* Espaço entre ícone e texto */
 }
 
-.sidebar h2 {
-    font-size: 18px;
-    margin-bottom: 20px;
+.sidebar ul li .icon {
+    font-size: 20px;
+    display: block;
+    text-align: left;
+    width: 10px;
+    /* Tamanho fixo para ícones */
 }
 
+.sidebar ul li .text {
+    display: flexbox;
+    opacity: 1;
+    /* Totalmente visível quando aberto */
+    transition: opacity 0.4s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sidebar.closed .text {
+    opacity: 0;
+    /* Esconde o texto quando fechado */
+}
+
+/* Ajuste do conteúdo */
+.content {
+    margin-left: 250px;
+    /* Espaço para sidebar aberta */
+    transition: margin-left 0.3s ease;
+}
+
+.content.sidebar-closed {
+    margin-left: 60px;
+    /* Espaço para sidebar fechada */
+}
+
+/* Ícone de menu na sidebar */
+/* Ícone de menu na sidebar */
+.sidebar .menu-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 30px;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar .menu-toggle:hover {
+    background-color: #333;
+    /* Cor de fundo ao passar o mouse */
+}
+
+.sidebar .menu-toggle .ri-menu-fill {
+    font-size: 24px;
+    /* Tamanho do ícone */
+}
+
+/* Ícones e texto na sidebar */
+.sidebar ul li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* Espaço entre ícone e texto */
+    padding: 15px;
+}
+
+.sidebar ul li i {
+    font-size: 20px;
+    /* Tamanho dos ícones */
+    color: white;
+    /* Cor do ícone */
+}
+
+.sidebar ul li .text {
+    color: white;
+    font-size: 16px;
+    transition: opacity 0.3s ease;
+}
+
+
+/* Navigation Bar */
 #navigation {
     list-style: none;
     padding: 0;
@@ -143,7 +245,7 @@ body.light {
 }
 
 /* Header */
-.header {
+/* .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -178,7 +280,7 @@ body.light {
 .header .menu a:hover {
     background-color: #007acc;
     color: #ffffff;
-}
+} */
 
 /* Tabela */
 

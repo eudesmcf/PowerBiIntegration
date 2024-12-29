@@ -353,3 +353,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+
+document.getElementById('toggleSidebar').addEventListener('click', () => {
+    const sidebar = document.querySelector('.sidebar');
+    const content = document.querySelector('.content');
+
+    sidebar.classList.toggle('closed');
+    content.classList.toggle('sidebar-closed');
+});

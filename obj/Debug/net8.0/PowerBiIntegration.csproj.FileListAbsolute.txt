@@ -34,3 +34,4 @@ E:\Bibliotecas\Eudes\Downloads\Treinamento\PowerBiIntegration\obj\Debug\net8.0\r
 E:\Bibliotecas\Eudes\Downloads\Treinamento\PowerBiIntegration\obj\Debug\net8.0\PowerBiIntegration.pdb
 E:\Bibliotecas\Eudes\Downloads\Treinamento\PowerBiIntegration\obj\Debug\net8.0\PowerBiIntegration.genruntimeconfig.cache
 E:\Bibliotecas\Eudes\Downloads\Treinamento\PowerBiIntegration\obj\Debug\net8.0\ref\PowerBiIntegration.dll
+E:\Bibliotecas\Eudes\Downloads\Treinamento\PowerBiIntegration\obj\Debug\net8.0\PowerBiIntegration.sourcelink.json
