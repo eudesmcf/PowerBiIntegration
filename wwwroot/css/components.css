@@ -1,0 +1,190 @@
+/* Exportar JSON - Seção */
+.export-section {
+    margin-top: 20px;
+    text-align: right;
+}
+
+/* Botão de Exportar */
+.export-btn {
+    background-color: #007acc;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover no Botão */
+.export-btn:hover {
+    background-color: #005f99;
+    transform: scale(1.05);
+}
+
+/* Foco no Botão */
+.export-btn:focus {
+    outline: 2px solid #007acc;
+}
+
+/* Desabilitado */
+.export-btn:disabled {
+    background-color: #444444;
+    color: #888888;
+    cursor: not-allowed;
+}
+
+/* Botões na Aba Workspace */
+.actions button {
+    margin-bottom: 10px;
+    padding: 10px 15px;
+
+    background-color: #007acc;
+    color: #ffffff;
+    border: 1px solid #444444;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Hover no Botão */
+.actions button:hover {
+    background-color: #005f99;
+    transform: scale(1.05);
+}
+
+/* Foco no Botão */
+.actions button:focus {
+    outline: 2px solid #007acc;
+}
+
+/* Botão Desabilitado */
+.actions button:disabled {
+    background-color: #444444;
+    color: #888888;
+    cursor: not-allowed;
+}
+
+/* Toggle Switch */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+/* Esconde o input padrão */
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Estilo do Slider */
+.toggle-switch .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 20px;
+}
+
+/* Antes do Slider - Ponto Móvel */
+.toggle-switch .slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+/* Quando o Toggle está ativado */
+.toggle-switch input:checked+.slider {
+    background-color: #007acc;
+}
+
+.toggle-switch input:checked+.slider:before {
+    transform: translateX(20px);
+}
+
+/* Hover no Slider */
+.toggle-switch .slider:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Container das Tags */
+.tags-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+/* Lista de Tags */
+.tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 5px;
+    background-color: #2a2d2e;
+    border: 1px solid #444444;
+    border-radius: 5px;
+    min-height: 40px;
+    align-items: center;
+}
+
+/* Estilo de Cada Tag */
+.tag {
+    display: inline-flex;
+    align-items: center;
+    background-color: #007acc;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    position: relative;
+}
+
+/* Botão para Remover Tag */
+.tag .remove-tag {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 12px;
+    margin-left: 8px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+/* Hover no Botão de Remover */
+.tag .remove-tag:hover {
+    color: #ff6666;
+}
+
+/* Input para Adicionar Tags */
+.tags-input {
+    flex-grow: 1;
+    padding: 5px;
+    font-size: 12px;
+    border: 1px solid #444444;
+    border-radius: 5px;
+    background-color: #1e1e1e;
+    color: #ffffff;
+    box-sizing: border-box;
+}
+
+/* Foco no Input */
+.tags-input:focus {
+    outline: none;
+    border-color: #007acc;
+}

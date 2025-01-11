@@ -1,0 +1,52 @@
+/* Temas */
+body.dark {
+    background-color: #464677;
+    color: #ffffff;
+}
+
+body.light {
+    background-color: #ffffff;
+    color: #ffffff;
+}
+
+/* Botões de Tema */
+.theme-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #ffffff;
+    border: 1px solid #444;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.theme-option:hover {
+    background-color: #3c3c4f;
+}
+
+
+
+/* .sidebar.closed .theme-option {
+    padding: 8px;
+    font-size: 12px;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.sidebar.closed .theme-option i {
+    margin: 0;
+}
+
+.sidebar.closed .theme-option span {
+    display: none;
+}
+
+.sidebar .theme-option span {
+    display: inline;
+} */

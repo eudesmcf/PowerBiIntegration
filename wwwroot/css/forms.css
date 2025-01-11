@@ -1,0 +1,64 @@
+/* Container do Formulário */
+.form-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    background-color: #2a2d2e;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #444444;
+    margin-bottom: 20px;
+    /* Espaço entre o formulário e a tabela */
+}
+
+/* Estilo do Rótulo */
+.form-container label {
+    font-size: 14px;
+    color: #d4d4d4;
+    white-space: nowrap;
+}
+
+/* Campo de Entrada */
+.form-container input[type="text"] {
+    flex-grow: 1;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #444444;
+    border-radius: 5px;
+    background-color: #1e1e1e;
+    color: #ffffff;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+/* Foco no Campo de Entrada */
+.form-container input[type="text"]:focus {
+    border-color: #007acc;
+    outline: none;
+}
+
+/* Botão de Adicionar */
+.form-container button {
+    padding: 10px 15px;
+    font-size: 14px;
+    background-color: #007acc;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s ease;
+}
+
+/* Hover no Botão */
+.form-container button:hover {
+    background-color: #005f99;
+    transform: scale(1.05);
+}
+
+/* Botão Desabilitado */
+.form-container button:disabled {
+    background-color: #444444;
+    color: #888888;
+    cursor: not-allowed;
+}

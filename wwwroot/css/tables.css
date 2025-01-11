@@ -1,0 +1,61 @@
+/* Tabelas */
+.table-container {
+
+    flex-direction: column;
+    /* Ocupa toda a largura */
+    width: 190vh;
+    /* Altura ajustável conforme o conteúdo */
+    height: 84%;
+
+    /* Garante que não ultrapasse uma altura específica */
+    padding: 10px;
+    background-color: #2a2d2e;
+    border-radius: 5px;
+    overflow: auto;
+    /* Rolagem automática se necessário */
+    border: 1px solid #444444;
+    box-sizing: border-box;
+}
+
+/* Tabela */
+.table-container table {
+    width: 100%;
+    /* Sempre ocupa toda a largura */
+    height: 100%;
+    /* Altura máxima do conteúdo */
+    font-size: 12px;
+    line-height: 1.5;
+    border-collapse: collapse;
+    border: 1px solid #444444;
+
+    /* Mantém as colunas com largura fixa */
+}
+
+/* Cabeçalhos e Células */
+.table-container th,
+.table-container td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #444444;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 13px;
+    white-space: nowrap;
+    /* Mantém o texto em linha única */
+}
+
+/* Cabeçalhos */
+.table-container th {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+/* Linhas */
+.table-container tr:nth-child(even) {
+    background-color: #2a2a2a;
+}
+
+.table-container tr:hover {
+    background-color: #3c3c3c;
+}

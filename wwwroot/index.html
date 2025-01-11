@@ -1,61 +1,86 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resizable Sidebar with Tabs</title>
-    <link rel="stylesheet" href="styles.css">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/modals.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/tables.css">
+    <link rel="stylesheet" href="css/theme.css">
+
     <!-- CodeMirror CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/codemirror.min.css">
-    <!-- Tema Escuro -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/theme/dracula.min.css">
-    <!-- Icones -->
+
+    <!-- Ícones -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
 
 <body class="dark">
-    <!-- <div class="header">
-        <div class="logo">Minha Logo</div>
-    </div> -->
 
+    <!-- Contêiner Global do Tooltip -->
+    <div id="tooltip-container"></div>
+
+    <!-- Layout Principal -->
     <div class="layout">
+
+        <!-- Sidebar -->
         <aside class="sidebar">
             <ul id="navigation">
-                <!-- Ícone de menu no início da sidebar -->
                 <li>
-                    <a href="#" id="toggleSidebar" class="menu-toggle">
+                    <a href="#" id="toggleSidebar" class="menu-toggle" data-tooltip="Menu">
                         <i class="ri-menu-fill"></i>
                         <span class="text">Menu</span>
                     </a>
                 </li>
-                <!-- Ícone de Monitoramento -->
                 <li>
-                    <a href="#" id="monitoringTab" class="active">
+                    <a href="#" id="monitoringTab" data-tooltip="Monitoramento">
                         <i class="ri-computer-line"></i>
                         <span class="text">Monitoramento</span>
                     </a>
                 </li>
-                <!-- Ícone de Workspaces -->
                 <li>
-                    <a href="#" id="workspacesTab">
+                    <a href="#" id="workspacesTab" data-tooltip="Workspaces">
                         <i class="ri-list-view"></i>
                         <span class="text">Workspaces</span>
                     </a>
                 </li>
             </ul>
+
+            <!-- Rodapé da Sidebar -->
+            <div class="sidebar-footer">
+                <!-- Botões Light/Dark para sidebar aberta -->
+                <button class="theme-option" id="lightMode">
+                    <i class="ri-sun-line"></i>
+                    <span>Light</span>
+                </button>
+                <button class="theme-option" id="darkMode">
+                    <i class="ri-moon-line"></i>
+                    <span>Dark</span>
+                </button>
+
+                <!-- Botão Toggle para sidebar fechada -->
+                <button class="theme-toggle-closed" id="toggleTheme">
+                    <i class="ri-moon-clear-line"></i>
+                </button>
+            </div>
         </aside>
 
-
-
-
+        <!-- Conteúdo Principal -->
         <main class="content">
+            <!-- Página Workspaces -->
             <div id="workspacesPage" class="page active">
                 <header class="topbar">
                     <h1>Workspaces</h1>
                     <div class="actions">
-                        <button id="toggleTheme">Switch to Light Theme</button>
                         <button id="fetchToken">Get Access Token</button>
                         <button id="fetchGroups">Get Workspaces</button>
                     </div>
@@ -69,22 +94,25 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Dados dinâmicos -->
+                            <!-- Dados Dinâmicos -->
                         </tbody>
                     </table>
                 </div>
             </div>
 
+            <!-- Página Monitoramento -->
             <div id="monitoringPage" class="page hidden">
                 <header class="topbar">
                     <h1>Monitoramento</h1>
                 </header>
                 <div class="monitoring-content">
-                    <div class="form">
+                    <!-- Formulário de Adicionar URL -->
+                    <div class="form-container">
                         <label for="monitorAddress">URL:</label>
                         <input type="text" id="monitorAddress" placeholder="Digite o endereço aqui">
                         <button id="addAddress">Adicionar</button>
                     </div>
+                    <!-- Tabela de Monitoramento -->
                     <div class="table-container">
                         <table id="monitorTable">
                             <thead>
@@ -99,36 +127,24 @@
                                     <th>Tags</th>
                                     <th>Monitorar</th>
                                 </tr>
+                                <td>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" class="monitor-toggle">
+                                        <span class="slider"></span>
+                                    </label>
+                                </td>
+                                <td class="tags-column">
+                                    <div class="tags-container">
+                                        <div class="tags-list" id="tagsList">
+                                            <!-- Tags dinâmicas serão adicionadas aqui -->
+                                        </div>
+                                        <input type="text" class="tags-input" id="tagsInput"
+                                            placeholder="Adicionar tag" />
+                                    </div>
+                                </td>
                             </thead>
                             <tbody>
-                                <!-- Dados adicionados -->
-                                <tr>
-                                    <td>1</td>
-                                    <td>Workspace 1</td>
-                                    <td>Objeto A</td>
-                                    <td>Dataset</td>
-                                    <td><a href="#">Link</a></td>
-                                    <td class="consulta-column">
-                                        <span class="consulta-indicator"></span>
-                                    </td>
-                                    <td class="retorno-column">
-                                        <span class="retorno-indicator"></span>
-                                    </td>
-                                    <td class="tags-column">
-                                        <div class="tags-container">
-                                            <div class="tags-list">
-                                                <!-- Tags Dinâmicas -->
-                                            </div>
-                                            <input type="text" class="tags-input" placeholder="Adicionar tag" />
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <label class="toggle-switch">
-                                            <input type="checkbox" class="monitor-toggle" />
-                                            <span class="slider"></span>
-                                        </label>
-                                    </td>
-                                </tr>
+                                <!-- Dados Adicionados -->
                             </tbody>
                         </table>
                         <!-- Botão Exportar JSON -->
@@ -141,13 +157,14 @@
         </main>
     </div>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="session">
             Session Active: <span id="sessionTime">00:00:00</span>
         </div>
     </footer>
 
-    <!-- Modal para adicionar consulta -->
+    <!-- Modal -->
     <div id="modal" class="hidden modal-container">
         <div class="modal-box">
             <header class="modal-header">
@@ -163,11 +180,11 @@
         </div>
     </div>
 
-    <!-- CodeMirror JS -->
+    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/codemirror.min.js"></script>
-    <!-- Modo SQL -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/mode/sql/sql.min.js"></script>
     <script src="scripts.js"></script>
+
 </body>
 
 </html>

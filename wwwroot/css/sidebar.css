@@ -1,0 +1,281 @@
+/* Sidebar */
+.sidebar {
+    width: 190px;
+    height: calc(100vh - 10px);
+    /* Reduz a altura da sidebar em 10px para acomodar o footer principal */
+    background-color: #1e1e2f;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+    transition: width 0.3s ease;
+    z-index: 2;
+    /* Garante que a sidebar fique acima de outros elementos */
+    padding: 10px 0;
+}
+
+.sidebar.closed {
+    width: 60px;
+}
+
+/* Quando o sidebar está fechado */
+.sidebar.closed+.content {
+    margin-left: 85px;
+    /* Margem ajustada para sidebar fechado */
+}
+
+/* Deixa espaço suficiente para o rodapé da sidebar e o footer principal */
+
+
+.sidebar.closed {
+    width: 60px;
+    height: calc(100vh - 10px);
+}
+
+/* Navegação da Sidebar */
+.sidebar ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.sidebar ul li {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.sidebar ul li i {
+    font-size: 25px;
+    /* Tamanho fixo do ícone */
+    width: 40px;
+    /* Largura fixa */
+    height: 40px;
+    gap: 10px;
+    /* Altura fixa */
+    display: flex;
+    align-items: center;
+    /* Centraliza verticalmente o ícone */
+    justify-content: center;
+    /* Centraliza horizontalmente o ícone */
+
+}
+
+.sidebar ul li .text {
+    opacity: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: opacity 0.3s ease, width 0.3s ease;
+}
+
+.sidebar ul li a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 40px;
+    text-decoration: none;
+    color: white;
+    white-space: nowrap;
+    /* Evita quebra de linha no texto */
+    position: relative;
+    /* Necessário para posicionar o tooltip */
+}
+
+.sidebar.closed .text {
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
+}
+
+.sidebar.closed ul li i,
+.sidebar.closed .menu-toggle i {
+    justify-content: center;
+    /* Centraliza o ícone */
+}
+
+.sidebar.closed ul li .text,
+.sidebar.closed .menu-toggle .text {
+    display: none;
+    /* Esconde o texto quando a sidebar está fechada */
+}
+
+/* Ícone do botão de alternar a sidebar */
+.sidebar .menu-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    text-decoration: none;
+    transition: background-color 2.7s ease;
+
+}
+
+.sidebar .menu-toggle .ri-menu-fill {
+    font-size: 24px;
+}
+
+.sidebar .menu-toggle:hover {
+    background-color: #333;
+}
+
+/* Estilo quando a sidebar está fechada */
+.sidebar.closed .menu-toggle {
+    gap: 0px;
+    /* Remove o espaçamento lateral extra */
+}
+
+.sidebar.closed .menu-toggle .text {
+    display: none;
+    /* Esconde o texto quando a sidebar está fechada */
+}
+
+/* Rodapé da Sidebar */
+.sidebar-footer {
+    margin-top: auto;
+    height: 50px;
+    /* Altura fixa do rodapé da sidebar */
+    background-color: #29293f;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 101%;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+/* Botões de Tema para sidebar aberta */
+.sidebar-footer .theme-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    background-color: #1e1e2f;
+    color: #ffffff;
+    border: 1px solid #444;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar-footer .theme-option:hover {
+    background-color: #3c3c4f;
+}
+
+.sidebar-footer .theme-option.active {
+    background-color: #007acc;
+    border-color: #007acc;
+}
+
+/* Botão Toggle para sidebar fechada */
+.sidebar-footer .theme-toggle-closed {
+    display: none;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    background-color: #1e1e2f;
+    color: #ffffff;
+    border: 1px solid #444;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar.closed .theme-toggle-closed {
+    display: flex;
+}
+
+.sidebar-footer .theme-toggle-closed span {
+    display: none !important;
+}
+
+.sidebar-footer .theme-toggle-closed i {
+    display: inline-block;
+    text-align: center;
+}
+
+/* Oculta os botões Light/Dark quando o sidebar está fechada */
+.sidebar.closed .theme-option {
+    display: none;
+}
+
+/* Ajuste de largura da tabela quando a sidebar está fechada */
+.sidebar.closed~.content .table-container {
+    width: 94.5vw;
+}
+
+/* Footer principal */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    /* Altura fixa de 10px */
+    font-size: 10px;
+    background-color: #323232;
+    color: #d4d4d4;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 5px;
+    border-top: 1px solid #444444;
+    overflow: hidden;
+    z-index: 3;
+    /* Garante que o footer principal fique acima da sidebar-footer */
+}
+
+.footer .session {
+    white-space: nowrap;
+    text-align: right;
+    padding: 0 15px;
+}
+
+.footer .seasson span {
+    font-weight: bold;
+    color: #00ff00;
+}
+
+#tooltip-container {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    background-color: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    font-size: 14px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    animation: none;
+    /* Inicialmente sem animação */
+}
+
+#tooltip-container.show {
+    opacity: 1;
+    visibility: visible;
+    animation: slideIn 0.3s ease forwards;
+    /* Animação de entrada */
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+        /* Começa levemente deslocado */
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        /* Volta à posição original */
+    }
+}

@@ -1,0 +1,22 @@
+/* Layout Principal */
+.layout {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* Conteúdo Principal */
+.content {
+    display: flex;
+    margin-left: 200px;
+    /* Largura inicial do sidebar */
+    transition: margin-left 0.3s ease;
+    height: 100vh;
+    /* padding: 10px; */
+    overflow-x: auto;
+    /* Garante que o conteúdo não extrapole a área visível */
+}
+
+.content .page h1 {
+    margin-left: 2px;
+}

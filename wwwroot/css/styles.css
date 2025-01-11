@@ -1,4 +1,4 @@
-/* Estilo geral */
+/* Estilos Globais */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -8,10 +8,16 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
-/* Tema */
+/* Links */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Temas */
 body.dark {
-    background-color: #252526;
-    color: #d4d4d4;
+    background-color: #121212;
+    color: #ffffff;
 }
 
 body.light {
@@ -19,38 +25,33 @@ body.light {
     color: #000000;
 }
 
-/* Layout principal */
+/* Layout Principal */
 .layout {
     display: flex;
     flex: 1;
     overflow: hidden;
 }
 
-/* Barra lateral */
-/* Sidebar Responsiva com Ícones */
+/* Sidebar */
 .sidebar {
-    position: fixed;
+    width: 260px;
+    height: 100vh;
+    background-color: #1e1e2f;
+    display: flex;
     flex-direction: column;
-    top: 20px;
-    left: 0;
-    width: 250px;
-    /* Largura quando aberta */
-    height: 100%;
-    background: #252526;
-    color: white;
-    transition: width 0.4s ease;
-    z-index: 1000;
-    overflow: hidden;
+    padding: 20px 15px;
+    position: fixed;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+    transition: width 0.3s ease;
 }
 
 .sidebar.closed {
     width: 60px;
-    /* Largura quando fechada */
 }
 
-/* Ícones e texto */
+/* Ícones e Texto na Sidebar */
 .sidebar ul {
-
     padding: 0;
     margin: 0;
 }
@@ -60,7 +61,6 @@ body.light {
     display: flex;
     align-items: center;
     gap: 10px;
-    /* Espaço entre ícone e texto */
 }
 
 .sidebar ul li .icon {
@@ -68,13 +68,11 @@ body.light {
     display: block;
     text-align: left;
     width: 10px;
-    /* Tamanho fixo para ícones */
 }
 
 .sidebar ul li .text {
     display: flexbox;
     opacity: 1;
-    /* Totalmente visível quando aberto */
     transition: opacity 0.4s ease;
     white-space: nowrap;
     overflow: hidden;
@@ -83,23 +81,12 @@ body.light {
 
 .sidebar.closed .text {
     opacity: 0;
-    /* Esconde o texto quando fechado */
+    width: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease, width 0.3s ease;
 }
 
-/* Ajuste do conteúdo */
-.content {
-    margin-left: 250px;
-    /* Espaço para sidebar aberta */
-    transition: margin-left 0.3s ease;
-}
-
-.content.sidebar-closed {
-    margin-left: 60px;
-    /* Espaço para sidebar fechada */
-}
-
-/* Ícone de menu na sidebar */
-/* Ícone de menu na sidebar */
+/* Ícone de Menu na Sidebar */
 .sidebar .menu-toggle {
     display: flex;
     align-items: center;
@@ -112,36 +99,21 @@ body.light {
 
 .sidebar .menu-toggle:hover {
     background-color: #333;
-    /* Cor de fundo ao passar o mouse */
 }
 
 .sidebar .menu-toggle .ri-menu-fill {
     font-size: 24px;
-    /* Tamanho do ícone */
 }
 
-/* Ícones e texto na sidebar */
-.sidebar ul li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    /* Espaço entre ícone e texto */
-    padding: 15px;
+/* Ajuste do Conteúdo */
+.content {
+    margin-left: 260px;
+    transition: margin-left 0.3s ease;
 }
 
-.sidebar ul li i {
-    font-size: 20px;
-    /* Tamanho dos ícones */
-    color: white;
-    /* Cor do ícone */
+.content.sidebar-closed {
+    margin-left: 60px;
 }
-
-.sidebar ul li .text {
-    color: white;
-    font-size: 16px;
-    transition: opacity 0.3s ease;
-}
-
 
 /* Navigation Bar */
 #navigation {
@@ -171,7 +143,7 @@ body.light {
     color: #ffffff;
 }
 
-/* Conteúdo principal */
+/* Conteúdo Principal */
 .content {
     flex-grow: 1;
     display: flex;
@@ -244,63 +216,22 @@ body.light {
     color: #00ff00;
 }
 
-/* Header */
-/* .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 15px;
-    height: 50px;
-    background-color: #1e1e1e;
-    color: #ffffff;
-    border-bottom: 1px solid #444444;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.header .logo {
-    font-size: 14px;
-    font-weight: bold;
-}
-
-.header .menu {
-    display: flex;
-    gap: 5px;
-}
-
-.header .menu a {
-    text-decoration: none;
-    color: #ffffff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.header .menu a:hover {
-    background-color: #007acc;
-    color: #ffffff;
-} */
-
-/* Tabela */
-
 /* Tabela */
 .table-container {
     display: flex;
     flex-direction: column;
     height: calc(100vh - 150px);
-    /* Ajuste para ocupar a altura disponível */
     padding: 20px;
     background-color: #2a2d2e;
     border-radius: 5px;
+    overflow-x: auto;
+    border: 1px solid #444444;
 }
 
 .table-wrapper {
     flex: 1;
     overflow-y: auto;
-    /* Rolagem vertical na tabela */
     margin-bottom: 10px;
-    /* Espaço para o botão */
 }
 
 .table-container table {
@@ -310,7 +241,6 @@ body.light {
     border-collapse: collapse;
     border: 1px solid #444444;
     table-layout: fixed;
-    /* Impede que as colunas se expandam desnecessariamente */
 }
 
 .table-container th,
@@ -319,14 +249,10 @@ body.light {
     text-align: left;
     border: 1px solid #444444;
     vertical-align: middle;
-    /* Alinha o conteúdo verticalmente ao centro */
     word-wrap: break-word;
-    /* Quebra de texto */
     overflow: hidden;
     text-overflow: ellipsis;
-    /* Trunca o texto se necessário */
     white-space: nowrap;
-    /* Mantém o texto em uma linha */
 }
 
 .table-container th {
@@ -353,7 +279,7 @@ body.light {
     text-decoration: underline;
 }
 
-/* Bolinha na coluna "Consulta" */
+/* Bolinha na Coluna "Consulta" */
 .consulta-column {
     text-align: center;
 }
@@ -371,7 +297,7 @@ body.light {
     background-color: green;
 }
 
-/* Exportar botão */
+/* Exportar Botão */
 .export-section {
     text-align: right;
 }
@@ -390,7 +316,6 @@ body.light {
     background-color: #005f99;
 }
 
-
 /* Consulta */
 .consulta-indicator {
     display: inline-block;
@@ -404,7 +329,6 @@ body.light {
 
 .consulta-indicator.active {
     background-color: #00ff00;
-    /* Verde (com consulta) */
 }
 
 .consulta-btn {
@@ -507,8 +431,6 @@ body.light {
     background-color: #3c3c3c;
 }
 
-
-
 /* Coluna de Consulta */
 .consulta-column {
     text-align: center;
@@ -521,16 +443,13 @@ body.light {
     height: 15px;
     border-radius: 50%;
     background-color: #888888;
-    /* Cinza (sem consulta) */
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 .consulta-indicator.active {
     background-color: #00ff00;
-    /* Verde (com consulta) */
 }
-
 
 /* Toggle Switch */
 .toggle-switch {
@@ -578,7 +497,6 @@ input:checked+.slider:before {
     transform: translateX(20px);
 }
 
-
 /* Modal Container */
 .modal-container {
     position: fixed;
@@ -587,14 +505,13 @@ input:checked+.slider:before {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    /* Fundo semitransparente */
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 1000;
 }
 
-/* Ocultar o modal */
+/* Ocultar o Modal */
 .hidden {
     display: none;
 }
@@ -615,7 +532,6 @@ input:checked+.slider:before {
     flex-direction: column;
     gap: 15px;
     box-sizing: border-box;
-    /* Inclui padding no cálculo de dimensões */
 }
 
 /* Modal Header */
@@ -640,7 +556,6 @@ input:checked+.slider:before {
     flex-direction: column;
     gap: 15px;
     flex-grow: 1;
-    /* Preenche o espaço restante */
 }
 
 /* CodeMirror Editor */
@@ -654,25 +569,28 @@ input:checked+.slider:before {
     line-height: 1.5;
     box-sizing: border-box;
     padding-left: 10px;
-    /* Inclui padding no cálculo de dimensões */
 }
 
-/* Números das Linhas */
 .CodeMirror-gutters {
     background-color: #1e1e1e;
     color: #888888;
-    /* Cor dos números das linhas */
     border-right: 1px solid #444444;
 }
 
-/* Ajustes gerais do editor */
 .CodeMirror-scroll {
     padding: 0;
-    /* Remove padding adicional */
     box-sizing: content-box;
-    /* Garante alinhamento */
     overflow: hidden;
-    /* Evita barras de rolagem desnecessárias */
+}
+
+.CodeMirror-linenumber {
+    padding-right: 5px;
+    text-align: right;
+    color: #888888;
+}
+
+.CodeMirror pre {
+    padding-left: 30px;
 }
 
 /* Modal Footer */
@@ -696,7 +614,7 @@ input:checked+.slider:before {
     background-color: #005f99;
 }
 
-/* Pré-visualização de código */
+/* Pré-visualização de Código */
 .code-preview {
     background-color: #1e1e1e;
     color: #d4d4d4;
@@ -710,20 +628,7 @@ input:checked+.slider:before {
     font-size: 14px;
 }
 
-/* Ajuste para evitar sobreposição de números */
-.CodeMirror-linenumber {
-    padding-right: 5px;
-    /* Espaço entre número e código */
-    text-align: right;
-    color: #888888;
-    /* Cor dos números */
-}
-
-.CodeMirror pre {
-    padding-left: 30px;
-    /* Ajuste para evitar sobreposição de números */
-}
-
+/* Export Section */
 .export-section {
     margin-top: 20px;
     text-align: right;
@@ -743,7 +648,6 @@ input:checked+.slider:before {
     background-color: #005f99;
 }
 
-
 /* Coluna de Retorno */
 .retorno-column {
     text-align: center;
@@ -754,24 +658,16 @@ input:checked+.slider:before {
 .retorno-indicator {
     display: inline-block;
     width: 15px;
-    /* Tamanho da bolinha */
     height: 15px;
-    /* Tamanho da bolinha */
     border-radius: 50%;
-    /* Formato circular */
     background-color: gray;
-    /* Cor padrão (sem retorno) */
     cursor: pointer;
     transition: background-color 0.3s;
-    /* Suaviza a mudança de cor */
 }
 
-/* Indicador com retorno */
 .retorno-indicator.filled {
     background-color: green;
-    /* Cor verde (com retorno) */
 }
-
 
 /* Tags Container */
 .tags-container {
@@ -817,4 +713,57 @@ input:checked+.slider:before {
     border-radius: 5px;
     background-color: #2a2d2e;
     color: #ffffff;
+}
+
+/* Botões de Tema */
+.theme-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    font-size: 14px;
+    background-color: #1e1e2f;
+    color: #ffffff;
+    border: 1px solid #444;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.theme-option:hover {
+    background-color: #3c3c4f;
+}
+
+.theme-option.active {
+    background-color: #007acc;
+    border-color: #007acc;
+}
+
+.sidebar.closed .theme-option {
+    padding: 8px;
+    font-size: 12px;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.sidebar.closed .theme-option i {
+    margin: 0;
+}
+
+.sidebar.closed .theme-option span {
+    display: none;
+}
+
+.sidebar .theme-option span {
+    display: inline;
+    /* ou block, dependendo do layout desejado */
+}
+
+/* Transições Suaves */
+.sidebar-footer,
+.theme-option {
+    transition: all 0.3s ease;
 }

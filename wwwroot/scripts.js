@@ -68,7 +68,7 @@ document.getElementById("fetchToken").addEventListener("click", async () => {
 
         const data = await response.json();
         console.log("Access Token:", data.accessToken);
-        alert("Access Token fetched successfully!");
+        // alert("Access Token fetched successfully!");
         startSessionTimer(); // Inicia o timer da sessão
     } catch (error) {
         console.error("Error fetching token:", error);
@@ -354,11 +354,74 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+// Seletores
+const body = document.body;
+const toggleSidebarBtn = document.getElementById("toggleSidebar");
+const sidebar = document.querySelector(".sidebar");
+const lightModeBtn = document.getElementById("lightMode");
+const darkModeBtn = document.getElementById("darkMode");
+const toggleThemeBtn = document.getElementById("toggleTheme");
+const links = document.querySelectorAll('#navigation a');
 
-document.getElementById('toggleSidebar').addEventListener('click', () => {
-    const sidebar = document.querySelector('.sidebar');
-    const content = document.querySelector('.content');
+toggleSidebarBtn.addEventListener('click', toggleSidebar);
 
-    sidebar.classList.toggle('closed');
-    content.classList.toggle('sidebar-closed');
+// Alternar Tema
+function setTheme(theme) {
+    body.classList.remove("dark", "light");
+    body.classList.add(theme);
+
+    lightModeBtn.classList.toggle("active", theme === "light");
+    darkModeBtn.classList.toggle("active", theme === "dark");
+
+    // Atualizar ícone no botão fechado
+    const icon = theme === "light" ? "ri-sun-line" : "ri-moon-line";
+    toggleThemeBtn.innerHTML = `<i class="${icon}"></i>`;
+}
+
+// Alternar Sidebar
+function toggleSidebar() {
+    const isClosed = sidebar.classList.toggle("closed");
+
+    lightModeBtn.style.display = isClosed ? "none" : "flex";
+    darkModeBtn.style.display = isClosed ? "none" : "flex";
+    toggleThemeBtn.style.display = isClosed ? "flex" : "none";
+}
+
+// Eventos
+lightModeBtn.addEventListener("click", () => setTheme("light"));
+darkModeBtn.addEventListener("click", () => setTheme("dark"));
+toggleThemeBtn.addEventListener("click", () => {
+    const currentTheme = body.classList.contains("dark") ? "light" : "dark";
+    setTheme(currentTheme);
+});
+
+// Seleciona a sidebar, links e o contêiner global do tooltip
+
+const tooltipContainer = document.getElementById('tooltip-container');
+
+function showTooltip(event) {
+    if (sidebar.classList.contains('closed')) {
+        const tooltipText = event.currentTarget.getAttribute('data-tooltip');
+        tooltipContainer.textContent = tooltipText;
+
+        const tooltipX = event.pageX + 10;
+        const tooltipY = event.pageY + 10;
+
+        tooltipContainer.style.left = `${tooltipX}px`;
+        tooltipContainer.style.top = `${tooltipY}px`;
+
+        tooltipContainer.classList.add('show'); // Adiciona a classe .show
+    }
+}
+
+function hideTooltip() {
+    tooltipContainer.classList.remove('show'); // Remove a classe .show
+}
+
+
+// Adiciona eventos de mouse nos links da sidebar
+links.forEach(link => {
+    link.addEventListener('mouseenter', showTooltip);
+    link.addEventListener('mousemove', showTooltip); // Atualiza a posição enquanto o mouse se move
+    link.addEventListener('mouseleave', hideTooltip);
 });
