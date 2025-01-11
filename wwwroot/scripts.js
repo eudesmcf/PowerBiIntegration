@@ -225,6 +225,9 @@ document.getElementById("exportJson").addEventListener("click", () => {
 
     rows.forEach(row => {
         const cells = row.querySelectorAll("td");
+        const hiddenTags = row.querySelector(".hidden-tags")?.textContent.trim() || ""; // Recupera as tags ocultas
+        const tagsArray = hiddenTags ? hiddenTags.split(",") : []; // Converte a string em array de tags
+
         const jsonData = {
             id: cells[0]?.textContent.trim() || "",
             workspace: cells[1]?.textContent.trim() || "",
@@ -232,8 +235,11 @@ document.getElementById("exportJson").addEventListener("click", () => {
             tipo: cells[3]?.textContent.trim() || "",
             link: cells[4]?.querySelector("a")?.href || "",
             consulta: row.dataset.consulta || "",
-            monitorar: cells[6]?.querySelector("input[type='checkbox']")?.checked || false
+            retorno: row.dataset.retorno || "",
+            tags: tagsArray, // Armazena as tags como array no JSON
+            monitorar: cells[8]?.querySelector("input[type='checkbox']")?.checked || false
         };
+
         data.push(jsonData);
     });
 
@@ -244,6 +250,8 @@ document.getElementById("exportJson").addEventListener("click", () => {
     link.download = "monitoring_data.json";
     link.click();
 });
+
+
 
 
 // Função para abrir o modal de consulta
@@ -393,32 +401,35 @@ function addLinkToTable(url) {
     const type = getTypeFromUrl(url); // Identifica o Tipo
     const tableBody = document.getElementById("monitorTable").querySelector("tbody");
     const row = document.createElement("tr");
+    row.setAttribute("data-row-id", addressId); // Adiciona o atributo data-row-id à linha
 
     row.innerHTML = `
-        <td>${addressId++}</td>
-        <td></td> <!-- Workspace vazio -->
-        <td></td> <!-- Nome do Objeto vazio -->
-        <td>${type}</td>
-        <td><a href="${url}" target="_blank">${url}</a></td>
-        <td class="consulta-column">
-            <span class="consulta-indicator" style="background-color: gray;"></span>
-        </td>
-        <td class="retorno-column">
-            <span class="retorno-indicator" style="background-color: gray;"></span>
-        </td>
-        <td class="tags-column">
-            <div class="tags-container">
-                <div class="tags-list"></div>
-                <input type="text" class="tags-input" placeholder="Adicione tags" />
-            </div>
-        </td>
-        <td>
-            <label class="toggle-switch">
-                <input type="checkbox" class="monitor-toggle" />
-                <span class="slider"></span>
-            </label>
-        </td>
+    <td>${addressId++}</td>
+    <td></td> <!-- Workspace vazio -->
+    <td></td> <!-- Nome do Objeto vazio -->
+    <td>${type}</td>
+    <td><a href="${url}" target="_blank">${url}</a></td>
+    <td class="consulta-column">
+        <span class="consulta-indicator" style="background-color: gray;"></span>
+    </td>
+    <td class="retorno-column">
+        <span class="retorno-indicator" style="background-color: gray;"></span>
+    </td>
+    <td class="tags-column">
+        <button class="tag-button" data-row-id="${addressId - 1}">
+            <i class="ri-price-tag-3-line"></i>
+        </button>
+        <div class="hidden-tags" style="display: none;"></div> <!-- Elemento oculto para armazenar as tags -->
+    </td>
+    <td>
+        <label class="toggle-switch">
+            <input type="checkbox" class="monitor-toggle" />
+            <span class="slider"></span>
+        </label>
+    </td>
     `;
+
+
 
     row.dataset.consulta = ""; // Inicializa com consulta vazia
     row.dataset.retorno = ""; // Inicializa com retorno vazio
@@ -546,3 +557,104 @@ document.addEventListener("click", event => {
         contextMenu.style.display = "none";
     }
 });
+
+
+let currentRowForTags = null; // Variável para armazenar a linha atual para as tags
+let currentTags = []; // Armazena as tags temporariamente
+
+// Seleciona os elementos do modal
+const tagModal = document.getElementById("tagModal");
+const tagsListModal = document.getElementById("tagsListModal");
+const tagsInputModal = document.getElementById("tagsInputModal");
+const saveTagsButton = document.getElementById("saveTagsButton");
+const closeTagModal = document.getElementById("closeTagModal");
+
+// Função para abrir o modal de tags
+function openTagModal(row) {
+    currentRowForTags = row; // Armazena a linha atual
+    currentTags = row.dataset.tags ? row.dataset.tags.split(",") : []; // Recupera as tags existentes
+    renderTags(); // Renderiza as tags no modal
+    tagModal.classList.add("show"); // Exibe o modal
+}
+
+// Adicionar evento ao botão de tags em cada linha
+document.addEventListener("click", event => {
+    if (event.target.closest(".tag-button")) {
+        const button = event.target.closest(".tag-button");
+        const rowId = button.dataset.rowId;
+        const row = document.querySelector(`[data-row-id="${rowId}"]`);
+        openTagModal(row);
+    }
+});
+
+// Fechar o modal ao clicar no botão de fechar
+closeTagModal.addEventListener("click", () => {
+    tagModal.classList.remove("show");
+});
+
+// Salvar as tags ao clicar no botão "Salvar"
+saveTagsButton.addEventListener("click", () => {
+    const tags = tagsInputModal.value.trim();
+    if (currentRowForTags) {
+        currentRowForTags.dataset.tags = tags; // Salva as tags no dataset da linha
+
+        // Atualiza o elemento oculto com as tags
+        const hiddenTagsContainer = currentRowForTags.querySelector(".hidden-tags");
+        hiddenTagsContainer.textContent = tags; // Armazena as tags no elemento oculto
+
+        console.log(`Tags salvas para a linha ${currentRowForTags.dataset.rowId}: ${tags}`);
+    }
+    tagModal.classList.remove("show"); // Fecha o modal
+});
+
+
+// Função para renderizar as tags no modal
+function renderTags() {
+    tagsListModal.innerHTML = ""; // Limpa a lista de tags
+    currentTags.forEach(tag => {
+        const tagElement = document.createElement("div");
+        tagElement.classList.add("tag");
+        tagElement.innerHTML = `${tag} <button class="remove-tag">×</button>`;
+
+        // Evento para remover a tag ao clicar no botão de remover
+        tagElement.querySelector(".remove-tag").addEventListener("click", () => {
+            currentTags = currentTags.filter(t => t !== tag); // Remove a tag da lista
+            renderTags(); // Re-renderiza a lista de tags
+        });
+
+        tagsListModal.appendChild(tagElement);
+    });
+}
+
+// Evento para adicionar uma nova tag ao pressionar Enter
+tagsInputModal.addEventListener("keypress", event => {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        const newTag = tagsInputModal.value.trim();
+        if (newTag && !currentTags.includes(newTag)) {
+            currentTags.push(newTag); // Adiciona a nova tag à lista
+            renderTags(); // Re-renderiza a lista de tags
+        }
+        tagsInputModal.value = ""; // Limpa o campo de input
+    }
+});
+
+// Fechar o modal ao clicar no botão de fechar
+closeTagModal.addEventListener("click", () => {
+    tagModal.classList.remove("show");
+});
+
+// Salvar as tags ao clicar no botão "Salvar"
+saveTagsButton.addEventListener("click", () => {
+    if (currentRowForTags) {
+        currentRowForTags.dataset.tags = currentTags.join(","); // Salva as tags no dataset da linha
+
+        // Atualiza o elemento oculto com as tags
+        const hiddenTagsContainer = currentRowForTags.querySelector(".hidden-tags");
+        hiddenTagsContainer.textContent = currentTags.join(",");
+
+        console.log(`Tags salvas para a linha ${currentRowForTags.dataset.rowId}: ${currentTags.join(",")}`);
+    }
+    tagModal.classList.remove("show"); // Fecha o modal
+});
+

@@ -183,6 +183,26 @@
         </div>
     </div>
 
+    <!-- Modal de Tags -->
+    <div id="tagModal" class="hidden modal-container">
+        <div class="modal-box">
+            <header class="modal-header">
+                <h3>Cadastro de Tags</h3>
+                <button id="closeTagModal" class="close-btn">X</button>
+            </header>
+            <div class="modal-body">
+                <div id="tagsListModal" class="tags-list-modal">
+                    <!-- As tags adicionadas serão exibidas aqui -->
+                </div>
+                <input type="text" id="tagsInputModal" placeholder="Digite uma tag e pressione Enter" />
+            </div>
+            <footer class="modal-footer">
+                <button id="saveTagsButton" class="save-btn">Salvar</button>
+            </footer>
+        </div>
+    </div>
+
+
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/codemirror.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/mode/sql/sql.min.js"></script>

@@ -1,16 +1,20 @@
 /* Modal Container */
 .modal-container {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    /* Fundo semitransparente */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    /* Fundo semi-transparente */
     z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-container.show {
+    display: flex;
 }
 
 /* Ocultar o Modal */
@@ -21,20 +25,11 @@
 
 /* Modal Box */
 .modal-box {
-    background-color: #2a2d2e;
-    padding: 30px;
     border-radius: 8px;
-    width: 700px;
+    padding: 20px;
+    width: 400px;
     max-width: 90%;
-    max-height: 80%;
-    overflow-y: auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    /* Sombra */
-    color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    box-sizing: border-box;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Modal Header */
@@ -137,4 +132,154 @@
 .modal-body select:focus {
     border-color: #007acc;
     outline: none;
+}
+
+
+/* Lista de tags no modal */
+.tags-list-modal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    min-height: 40px;
+    background-color: #f8f9fa;
+}
+
+/* Estilo de cada tag no modal */
+.tags-list-modal .tag {
+    display: inline-flex;
+    align-items: center;
+    background-color: #007acc;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    position: relative;
+}
+
+/* Botão para remover uma tag */
+.tags-list-modal .remove-tag {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 12px;
+    margin-left: 8px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.tags-list-modal .remove-tag:hover {
+    color: #ff6666;
+}
+
+/* Modal no tema claro */
+body.light .modal-box {
+    background-color: #f9f9f9;
+    /* Fundo claro suave */
+    color: #1e1e1e;
+    /* Texto escuro */
+    border: 1px solid #b3b3b3;
+}
+
+/* Modal no tema escuro */
+body.dark .modal-box {
+    background-color: #1e1e2e;
+    color: #ffffff;
+    border: 1px solid #444;
+}
+
+/* Estilo do input no modal */
+.modal-box input {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+
+/* Tema claro: input */
+body.light .modal-box input {
+    background-color: #ffffff;
+    color: #1e1e1e;
+    border: 1px solid #cccccc;
+}
+
+/* Tema escuro: input */
+body.dark .modal-box input {
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border: 1px solid #555;
+}
+
+/* Botão "Salvar" no modal */
+.modal-footer .save-btn {
+    padding: 10px 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Tema claro: botão "Salvar" */
+body.light .modal-footer .save-btn {
+    background-color: #007acc;
+    color: #ffffff;
+    border: 1px solid #007acc;
+}
+
+body.light .modal-footer .save-btn:hover {
+    background-color: #005f99;
+}
+
+/* Tema escuro: botão "Salvar" */
+body.dark .modal-footer .save-btn {
+    background-color: #005f99;
+    color: #ffffff;
+}
+
+body.dark .modal-footer .save-btn:hover {
+    background-color: #007acc;
+}
+
+/* Cabeçalho do modal no tema claro */
+body.light .modal-header h3 {
+    color: #1e1e1e;
+    /* Título em cor escura */
+}
+
+/* Botão de fechar no modal */
+.modal-header .close-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+/* Tema claro: botão de fechar */
+body.light .modal-header .close-btn {
+    color: #1e1e1e;
+    /* Botão de fechar com cor escura */
+}
+
+body.light .modal-header .close-btn:hover {
+    color: #ff6666;
+    /* Cor vermelha ao passar o mouse */
+}
+
+/* Tema escuro: botão de fechar */
+body.dark .modal-header .close-btn {
+    color: #ffffff;
+}
+
+body.dark .modal-header .close-btn:hover {
+    color: #ff6666;
 }
