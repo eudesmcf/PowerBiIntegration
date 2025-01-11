@@ -425,3 +425,14 @@ links.forEach(link => {
     link.addEventListener('mousemove', showTooltip); // Atualiza a posição enquanto o mouse se move
     link.addEventListener('mouseleave', hideTooltip);
 });
+
+
+toggleThemeBtn.addEventListener('click', () => {
+    // Verifica o tema atual e alterna para o oposto
+    const currentTheme = body.classList.contains('dark') ? 'light' : 'dark';
+    setTheme(currentTheme); // Chama a função que alterna o tema
+
+    // Atualiza o ícone do botão fechado
+    const icon = currentTheme === 'light' ? 'ri-sun-line' : 'ri-moon-line';
+    toggleThemeBtn.innerHTML = `<i class="${icon}"></i>`;
+});

@@ -1,12 +1,21 @@
 /* Temas */
 body.dark {
     background-color: #464677;
-    color: #ffffff;
 }
 
 body.light {
     background-color: #ffffff;
-    color: #ffffff;
+}
+
+/* Tema escuro: texto branco */
+body.dark h1 {
+    color: white;
+}
+
+/* Tema claro: texto escuro */
+body.light h1 {
+    color: #333;
+    /* Escolha uma cor que contraste bem com o fundo claro */
 }
 
 /* Botões de Tema */
@@ -27,26 +36,34 @@ body.light {
     background-color: #3c3c4f;
 }
 
-
-
-/* .sidebar.closed .theme-option {
-    padding: 8px;
-    font-size: 12px;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    text-align: center;
+/* Tema escuro: texto branco e fundo escuro */
+body.dark .table-container {
+    color: white;
 }
 
-.sidebar.closed .theme-option i {
-    margin: 0;
+body.dark .table-container th,
+body.dark .table-container td {
+    color: white;
+    border-color: #444444;
 }
 
-.sidebar.closed .theme-option span {
-    display: none;
+body.dark .table-container th {
+    background-color: #333333;
 }
 
-.sidebar .theme-option span {
-    display: inline;
-} */
+/* Tema claro: texto escuro */
+body.light .table-container {
+    color: #333;
+    border: 1px solid #cccccc;
+    /* Borda com a mesma cor da linha */
+}
+
+body.light .table-container th,
+body.light .table-container td {
+    color: #333;
+    border-color: #cccccc;
+}
+
+body.light .table-container th {
+    background-color: #f0f0f0;
+}

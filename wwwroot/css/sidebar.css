@@ -136,7 +136,7 @@
 /* Rodapé da Sidebar */
 .sidebar-footer {
     margin-top: auto;
-    height: 50px;
+    height: 60px;
     /* Altura fixa do rodapé da sidebar */
     background-color: #29293f;
     display: flex;

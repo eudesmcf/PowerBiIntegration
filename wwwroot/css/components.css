@@ -34,11 +34,14 @@
     cursor: not-allowed;
 }
 
+
+
+
 /* Botões na Aba Workspace */
 .actions button {
     margin-bottom: 10px;
+    margin-right: 5px;
     padding: 10px 15px;
-
     background-color: #007acc;
     color: #ffffff;
     border: 1px solid #444444;
