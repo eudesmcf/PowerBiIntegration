@@ -1,10 +1,7 @@
-/* Tabelas */
-
+/* Container da tabela */
 .table-container {
     flex-direction: column;
-    /* Ocupa toda a largura */
     width: 190vh;
-    /* Altura ajustável conforme o conteúdo */
     height: 84%;
     padding: 10px;
     border-radius: 5px;
@@ -13,22 +10,17 @@
     box-sizing: border-box;
 }
 
-/* Tabela */
-
+/* Estilos da tabela dentro do container */
 .table-container table {
     width: 100%;
-    /* Sempre ocupa toda a largura */
     height: 100%;
-    /* Altura máxima do conteúdo */
     font-size: 12px;
     line-height: 1.5;
     border-collapse: collapse;
     border: 1px solid #444444;
-    /* Mantém as colunas com largura fixa */
 }
 
-/* Cabeçalhos e Células */
-
+/* Estilos para cabeçalhos e células da tabela */
 .table-container th,
 .table-container td {
     padding: 8px;
@@ -39,67 +31,98 @@
     text-overflow: ellipsis;
     font-size: 13px;
     white-space: nowrap;
-    /* Mantém o texto em linha única */
 }
 
-/* Cabeçalhos */
-
+/* Estilos para cabeçalhos da tabela */
 .table-container th {
     background-color: #333333;
     color: #ffffff;
 }
 
-/* Linhas */
-
+/* Estilos para linhas da tabela */
 .table-container tr {
     background-color: #ffffff;
 }
 
+/* Estilos para linhas da tabela no tema escuro */
 body.dark .table-container tr {
     background-color: #2a2d2e;
-    /* Para o tema escuro */
 }
 
-/* Tema escuro: fundo escuro no container */
+/* Estilos para o container da tabela no tema escuro */
 body.dark .table-container {
     background-color: #2a2d2e;
     color: white;
 }
 
+/* Estilos para cabeçalhos e células da tabela no tema escuro */
 body.dark .table-container th,
 body.dark .table-container td {
     color: white;
     border-color: #444444;
 }
 
+/* Estilos para cabeçalhos da tabela no tema escuro */
 body.dark .table-container th {
     background-color: #333333;
 }
 
-/* Tema claro: fundo branco no container */
+/* Estilos para o container da tabela no tema claro */
 body.light .table-container {
     background-color: #ffffff;
     color: #333;
+    border: 1px solid #cccccc;
 }
 
+/* Estilos para cabeçalhos e células da tabela no tema claro */
 body.light .table-container th,
 body.light .table-container td {
-    color: #333;
+    /* Borda clara para as células */
     border-color: #cccccc;
+    /* Cabeçalho preto */
+    color: #333;
 }
 
+/* Estilos para cabeçalhos da tabela no tema claro */
 body.light .table-container th {
     background-color: #f0f0f0;
+    border: 1px solid #cccccc;
 }
 
-/* Tema escuro: hover com fundo escuro */
+/* Estilos para linhas da tabela no tema escuro ao passar o mouse */
 body.dark .table-container tr:hover {
     background-color: #3c3c3c;
     color: white;
 }
 
-/* Tema claro: hover com fundo cinza claro */
+/* Estilos para linhas da tabela no tema claro ao passar o mouse */
 body.light .table-container tr:hover {
     background-color: #e6e6e6;
     color: #000;
+}
+
+/* Estilo do form-container */
+.form-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #444444;
+    box-sizing: border-box;
+}
+
+/* Tema escuro: fundo escuro e bordas escuras */
+body.dark .form-container {
+    background-color: #2a2d2e;
+    color: white;
+    border-color: #444444;
+}
+
+/* Tema claro: fundo branco e bordas claras */
+body.light .form-container {
+    background-color: #ffffff;
+    color: #333;
+    border-color: #cccccc;
 }

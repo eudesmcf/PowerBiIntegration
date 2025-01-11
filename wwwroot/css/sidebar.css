@@ -13,6 +13,10 @@
     z-index: 2;
     /* Garante que a sidebar fique acima de outros elementos */
     padding: 10px 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    /* Inter Medium */
+    font-size: 12px;
 }
 
 .sidebar.closed {

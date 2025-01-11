@@ -3,6 +3,7 @@ body.dark {
     background-color: #464677;
 }
 
+/* Tema claro: fundo branco */
 body.light {
     background-color: #ffffff;
 }
@@ -15,7 +16,6 @@ body.dark h1 {
 /* Tema claro: texto escuro */
 body.light h1 {
     color: #333;
-    /* Escolha uma cor que contraste bem com o fundo claro */
 }
 
 /* Botões de Tema */
@@ -30,40 +30,104 @@ body.light h1 {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
+
+    /* Adiciona um efeito de hover para os botões de tema */
+    .theme-option:hover {
+        background-color: #3c3c4f;
+    }
+
+    /* Tema escuro: texto branco e fundo escuro */
+    body.dark .table-container {
+        color: white;
+    }
+
+    /* Tema escuro: cabeçalhos e células da tabela com texto branco e bordas escuras */
+    body.dark .table-container th,
+    body.dark .table-container td {
+        color: white;
+        border-color: #444444;
+    }
+
+    /* Tema escuro: cabeçalhos da tabela com fundo escuro */
+    body.dark .table-container th {
+        background-color: #333333;
+    }
+
+    /* Tema claro: texto escuro e bordas claras */
+    body.light .table-container {
+        color: #333;
+        border: 1px solid #cccccc;
+    }
+
+    /* Tema claro: cabeçalhos e células da tabela com texto escuro e bordas claras */
+    body.light .table-container th,
+    body.light .table-container td {
+        color: #333;
+        border-color: #cccccc;
+    }
+
+    body.light .table-container th {
+        background-color: #f0f0f0;
+    }
 }
 
-.theme-option:hover {
-    background-color: #3c3c4f;
-}
-
-/* Tema escuro: texto branco e fundo escuro */
-body.dark .table-container {
+/* Estilo base para inputs no form-container */
+.form-container input[type="text"] {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #444444;
+    border-radius: 5px;
+    background-color: #1e1e1e;
     color: white;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
-body.dark .table-container th,
-body.dark .table-container td {
+/* Estilo para links no form-container */
+.form-container a {
+    color: #007acc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Tema escuro: inputs e links */
+body.dark .form-container input[type="text"] {
+    background-color: #1e1e1e;
     color: white;
     border-color: #444444;
 }
 
-body.dark .table-container th {
-    background-color: #333333;
+body.dark .form-container a {
+    color: #007acc;
 }
 
-/* Tema claro: texto escuro */
-body.light .table-container {
-    color: #333;
-    border: 1px solid #cccccc;
-    /* Borda com a mesma cor da linha */
-}
-
-body.light .table-container th,
-body.light .table-container td {
+/* Tema claro: inputs e links */
+body.light .form-container input[type="text"] {
+    background-color: #ffffff;
     color: #333;
     border-color: #cccccc;
 }
 
-body.light .table-container th {
-    background-color: #f0f0f0;
+body.light .form-container a {
+    color: #000;
+    /* Links em preto no tema claro 
+    
+    */
+}
+
+/* Estilo base para o label no form-container */
+.form-container label {
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+/* Tema escuro: label com texto branco */
+body.dark .form-container label {
+    color: white;
+}
+
+/* Tema claro: label com texto preto */
+body.light .form-container label {
+    color: #000;
 }
