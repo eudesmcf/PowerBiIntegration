@@ -103,6 +103,7 @@
                         </tbody>
                     </table>
                 </div>
+
             </div>
 
             <!-- Página Monitoramento -->
@@ -132,21 +133,6 @@
                                     <th>Tags</th>
                                     <th>Monitorar</th>
                                 </tr>
-                                <td>
-                                    <label class="toggle-switch">
-                                        <input type="checkbox" class="monitor-toggle">
-                                        <span class="slider"></span>
-                                    </label>
-                                </td>
-                                <td class="tags-column">
-                                    <div class="tags-container">
-                                        <div class="tags-list" id="tagsList">
-                                            <!-- Tags dinâmicas serão adicionadas aqui -->
-                                        </div>
-                                        <input type="text" class="tags-input" id="tagsInput"
-                                            placeholder="Adicionar tag" />
-                                    </div>
-                                </td>
                             </thead>
                             <tbody>
                                 <!-- Dados Adicionados -->
@@ -160,6 +146,18 @@
                 </div>
             </div>
         </main>
+    </div>
+
+    <!-- Menu de contexto personalizado -->
+    <div id="contextMenu" class="context-menu">
+        <ul>
+            <li class="submenu">
+                Ações
+                <ul class="submenu-options">
+                    <li id="goToArtifact">Ir para o artefato</li>
+                </ul>
+            </li>
+        </ul>
     </div>
 
     <!-- Footer -->

@@ -245,58 +245,6 @@ document.getElementById("exportJson").addEventListener("click", () => {
     link.click();
 });
 
-// Adicionar uma única linha na tabela
-function addLinkToTable(url) {
-    const type = getTypeFromUrl(url); // Identifica o Tipo
-    const tableBody = document.getElementById("monitorTable").querySelector("tbody");
-    const row = document.createElement("tr");
-
-    row.innerHTML = `
-        <td>${addressId++}</td>
-        <td></td> <!-- Workspace vazio -->
-        <td></td> <!-- Nome do Objeto vazio -->
-        <td>${type}</td>
-        <td><a href="${url}" target="_blank">${url}</a></td>
-        <td class="consulta-column">
-            <span class="consulta-indicator" style="background-color: gray;"></span>
-        </td>
-        <td class="retorno-column">
-            <span class="retorno-indicator" style="background-color: gray;"></span>
-        </td>
-        <td class="tags-column">
-            <input type="text" class="tags-input" placeholder="Adicione tags" />
-        </td>
-        <td>
-            <label class="toggle-switch">
-                <input type="checkbox" class="monitor-toggle" />
-                <span class="slider"></span>
-            </label>
-        </td>
-    `;
-
-    row.dataset.consulta = ""; // Inicializa com consulta vazia
-    row.dataset.retorno = ""; // Inicializa com retorno vazio
-    row.dataset.tags = ""; // Inicializa com tags vazias
-    tableBody.appendChild(row);
-
-    // Adicionar evento para o indicador de consulta
-    const consultaIndicator = row.querySelector(".consulta-indicator");
-    consultaIndicator.addEventListener("click", () => {
-        openModal(consultaIndicator, row);
-    });
-
-    // Adicionar evento para o indicador de retorno
-    const retornoIndicator = row.querySelector(".retorno-indicator");
-    retornoIndicator.addEventListener("click", () => {
-        handleRetornoClick(retornoIndicator, row);
-    });
-
-    // Evento para o campo de tags
-    const tagsInput = row.querySelector(".tags-input");
-    tagsInput.addEventListener("input", () => {
-        row.dataset.tags = tagsInput.value;
-    });
-}
 
 // Função para abrir o modal de consulta
 function openModal(indicator, row) {
@@ -435,4 +383,166 @@ toggleThemeBtn.addEventListener('click', () => {
     // Atualiza o ícone do botão fechado
     const icon = currentTheme === 'light' ? 'ri-sun-line' : 'ri-moon-line';
     toggleThemeBtn.innerHTML = `<i class="${icon}"></i>`;
+});
+
+
+
+function addLinkToTable(url) {
+    if (!url) return; // Evita adicionar uma linha vazia
+
+    const type = getTypeFromUrl(url); // Identifica o Tipo
+    const tableBody = document.getElementById("monitorTable").querySelector("tbody");
+    const row = document.createElement("tr");
+
+    row.innerHTML = `
+        <td>${addressId++}</td>
+        <td></td> <!-- Workspace vazio -->
+        <td></td> <!-- Nome do Objeto vazio -->
+        <td>${type}</td>
+        <td><a href="${url}" target="_blank">${url}</a></td>
+        <td class="consulta-column">
+            <span class="consulta-indicator" style="background-color: gray;"></span>
+        </td>
+        <td class="retorno-column">
+            <span class="retorno-indicator" style="background-color: gray;"></span>
+        </td>
+        <td class="tags-column">
+            <div class="tags-container">
+                <div class="tags-list"></div>
+                <input type="text" class="tags-input" placeholder="Adicione tags" />
+            </div>
+        </td>
+        <td>
+            <label class="toggle-switch">
+                <input type="checkbox" class="monitor-toggle" />
+                <span class="slider"></span>
+            </label>
+        </td>
+    `;
+
+    row.dataset.consulta = ""; // Inicializa com consulta vazia
+    row.dataset.retorno = ""; // Inicializa com retorno vazio
+    row.dataset.tags = ""; // Inicializa com tags vazias
+    tableBody.appendChild(row);
+
+    // Adicionar evento de contexto no link após a criação da linha
+    const link = row.querySelector("a");
+    link.addEventListener("contextmenu", event => {
+        event.preventDefault(); // Impede o menu de contexto padrão do navegador
+        currentLink = link; // Armazena o link atual
+        console.log("Link capturado:", currentLink.href); // Log para depuração
+        showContextMenu(event.pageX, event.pageY);
+    });
+
+    // Adicionar evento para o indicador de consulta
+    const consultaIndicator = row.querySelector(".consulta-indicator");
+    consultaIndicator.addEventListener("click", () => {
+        openModal(consultaIndicator, row);
+    });
+
+    // Adicionar evento para o indicador de retorno
+    const retornoIndicator = row.querySelector(".retorno-indicator");
+    retornoIndicator.addEventListener("click", () => {
+        handleRetornoClick(retornoIndicator, row);
+    });
+
+    // Evento para o campo de tags
+    const tagsInput = row.querySelector(".tags-input");
+    tagsInput.addEventListener("keypress", event => {
+        if (event.key === "Enter") {
+            const tagContainer = row.querySelector(".tags-list");
+            const tagValue = tagsInput.value.trim();
+
+            if (tagValue) {
+                const tagElement = document.createElement("div");
+                tagElement.classList.add("tag");
+                tagElement.innerHTML = `${tagValue} <span class="remove-tag">×</span>`;
+
+                // Adiciona evento para remover a tag
+                tagElement.querySelector(".remove-tag").addEventListener("click", () => {
+                    tagContainer.removeChild(tagElement);
+                });
+
+                tagContainer.appendChild(tagElement);
+                tagsInput.value = ""; // Limpa o input
+            }
+        }
+    });
+}
+
+
+
+// Seletores
+const contextMenu = document.getElementById("contextMenu");
+const goToArtifactOption = document.getElementById("goToArtifact");
+let currentLink = null; // Armazena o link atual para abrir
+
+
+// Exibir o menu de contexto ao clicar com o botão direito em um link
+document.querySelector(".table-container").addEventListener("contextmenu", event => {
+    const link = event.target.closest("a"); // Verifica se o alvo é um link
+    if (link) {
+        event.preventDefault();
+        console.log("Evento contextmenu capturado no link:", link.href);
+    }
+});
+
+
+// Ação ao clicar na opção "Ir para o artefato"
+goToArtifactOption.addEventListener("click", () => {
+    if (currentLink) {
+        window.open(currentLink.href, "_blank"); // Abre o link em uma nova aba
+    }
+    contextMenu.style.display = "none"; // Fecha o menu de contexto
+});
+
+
+document.addEventListener("contextmenu", event => {
+    event.preventDefault();
+    console.log("Evento contextmenu capturado!");
+});
+
+// Seleciona as tabelas que contêm os links
+const tables = document.querySelectorAll(".table-container");
+
+// Adiciona o evento de contexto apenas nos links das tabelas
+tables.forEach(table => {
+    table.addEventListener("contextmenu", event => {
+        const link = event.target.closest("a"); // Verifica se o alvo é um link
+        if (link) {
+            event.preventDefault(); // Impede o menu de contexto padrão do navegador
+            currentLink = link; // Armazena o link atual
+            showContextMenu(event.pageX, event.pageY); // Exibe o menu na posição do clique
+        }
+    });
+});
+
+// Função para exibir o menu de contexto na posição do mouse
+function showContextMenu(x, y) {
+    const menuWidth = contextMenu.offsetWidth;
+    const menuHeight = contextMenu.offsetHeight;
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+
+    // Ajusta a posição horizontal se o menu ultrapassar a largura da tela
+    if (x + menuWidth > viewportWidth) {
+        x = viewportWidth - menuWidth - 5; // Ajusta com margem de 5px
+    }
+
+    // Ajusta a posição vertical se o menu ultrapassar a altura da tela
+    if (y + menuHeight > viewportHeight) {
+        y = viewportHeight - menuHeight - 5; // Ajusta com margem de 5px
+    }
+
+    contextMenu.style.left = `${x}px`;
+    contextMenu.style.top = `${y}px`;
+    contextMenu.style.display = "block";
+    console.log("Exibindo menu de contexto ajustado na posição:", x, y);
+}
+
+// Fechar o menu de contexto ao clicar fora dele
+document.addEventListener("click", event => {
+    if (!contextMenu.contains(event.target)) {
+        contextMenu.style.display = "none";
+    }
 });
