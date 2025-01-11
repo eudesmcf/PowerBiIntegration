@@ -8,14 +8,14 @@
 /* Conteúdo Principal */
 .content {
     display: flex;
+    flex-direction: column;
+    flex-grow: 1;
     margin-left: 200px;
-    /* Largura inicial do sidebar */
-    transition: margin-left 0.3s ease;
-    height: 100vh;
-    /* padding: 10px; */
-    overflow-x: auto;
-    /* Garante que o conteúdo não extrapole a área visível */
+    margin-right: 10px;
+    overflow: hidden;
+    /* Impede a rolagem global */
 }
+
 
 .content .page h1 {
     margin-left: 2px;

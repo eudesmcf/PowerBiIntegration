@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Bibliotecas\\Eudes\\Downloads\\Treinamento\\PowerBiIntegration\\PowerBiIntegration.csproj": {}
+    "C:\\Projetos\\PbiMonitoramento\\PowerBiIntegration\\PowerBiIntegration.csproj": {}
   },
   "projects": {
-    "E:\\Bibliotecas\\Eudes\\Downloads\\Treinamento\\PowerBiIntegration\\PowerBiIntegration.csproj": {
+    "C:\\Projetos\\PbiMonitoramento\\PowerBiIntegration\\PowerBiIntegration.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Bibliotecas\\Eudes\\Downloads\\Treinamento\\PowerBiIntegration\\PowerBiIntegration.csproj",
+        "projectUniqueName": "C:\\Projetos\\PbiMonitoramento\\PowerBiIntegration\\PowerBiIntegration.csproj",
         "projectName": "PowerBiIntegration",
-        "projectPath": "E:\\Bibliotecas\\Eudes\\Downloads\\Treinamento\\PowerBiIntegration\\PowerBiIntegration.csproj",
+        "projectPath": "C:\\Projetos\\PbiMonitoramento\\PowerBiIntegration\\PowerBiIntegration.csproj",
         "packagesPath": "C:\\Users\\Eudes\\.nuget\\packages\\",
-        "outputPath": "E:\\Bibliotecas\\Eudes\\Downloads\\Treinamento\\PowerBiIntegration\\obj\\",
+        "outputPath": "C:\\Projetos\\PbiMonitoramento\\PowerBiIntegration\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -126,3 +126,48 @@ body.light .form-container {
     color: #333;
     border-color: #cccccc;
 }
+
+/* Seção de exportação */
+.export-section {
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+/* Container da tabela */
+.table-container {
+    width: 100%;
+    height: calc(100vh - 260px);
+    /* O container ocupa até o final da tela */
+    overflow: auto;
+    /* Rolagem interna, se necessário */
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #444444;
+}
+
+/* Estilo da tabela */
+.table-container table {
+    width: 100%;
+    /* A tabela ocupa toda a largura do container */
+    border-collapse: collapse;
+    table-layout: auto;
+    height: auto;
+    /* Garante que a tabela tenha altura automática */
+}
+
+/* Estilo das células */
+.table-container th,
+.table-container td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #444444;
+    white-space: nowrap;
+    /* Impede quebra de linha */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 13px;
+    height: auto;
+    /* Altura automática das células */
+}

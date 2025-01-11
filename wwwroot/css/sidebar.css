@@ -45,7 +45,7 @@
 }
 
 .sidebar ul li {
-    padding: 15px;
+    padding: 15px 20px 20px 10px;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -282,4 +282,22 @@
         transform: translateY(0);
         /* Volta à posição original */
     }
+}
+
+/* Divider quando a sidebar está aberta */
+.sidebar-divider {
+    border: none;
+    border-bottom: 1px solid whitesmoke;
+    width: 80%;
+    /* Largura do divider quando a sidebar está aberta */
+    margin: 10px auto;
+    /* Centraliza a linha horizontalmente */
+}
+
+/* Divider quando a sidebar está fechada */
+.sidebar.closed .sidebar-divider {
+    width: 40%;
+    /* Largura reduzida quando a sidebar está fechada */
+    margin: 10px auto;
+    /* Centraliza a linha */
 }
