@@ -102,12 +102,12 @@ function updateSessionTimer() {
 }
 
 // Alternar entre guias
-document.getElementById("workspacesTab").addEventListener("click", () => {
-    showPage("workspacesPage", "workspacesTab");
-});
-
 document.getElementById("monitoringTab").addEventListener("click", () => {
     showPage("monitoringPage", "monitoringTab");
+});
+
+document.getElementById("workspacesTab").addEventListener("click", () => {
+    showPage("workspacesPage", "workspacesTab");
 });
 
 function showPage(pageId, tabId) {
@@ -124,6 +124,12 @@ function showPage(pageId, tabId) {
     document.getElementById(pageId).classList.add("active");
     document.getElementById(tabId).classList.add("active");
 }
+
+// Definir a guia inicial ao carregar a página
+document.addEventListener("DOMContentLoaded", () => {
+    showPage("monitoringPage", "monitoringTab"); // Altere para a guia desejada
+});
+
 
 // Adicionar endereço na tabela de monitoramento
 let addressId = 1;
