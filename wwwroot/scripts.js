@@ -366,8 +366,8 @@ function showTooltip(event) {
         const tooltipText = event.currentTarget.getAttribute('data-tooltip');
         tooltipContainer.textContent = tooltipText;
 
-        const tooltipX = event.pageX + 10;
-        const tooltipY = event.pageY + 10;
+        const tooltipX = event.pageX + 20;
+        const tooltipY = event.pageY + 20;
 
         tooltipContainer.style.left = `${tooltipX}px`;
         tooltipContainer.style.top = `${tooltipY}px`;
@@ -543,12 +543,12 @@ function showContextMenu(x, y) {
 
     // Ajusta a posição horizontal se o menu ultrapassar a largura da tela
     if (x + menuWidth > viewportWidth) {
-        x = viewportWidth - menuWidth - 5; // Ajusta com margem de 5px
+        x = viewportWidth - menuWidth - 10; // Ajusta com margem de 5px
     }
 
     // Ajusta a posição vertical se o menu ultrapassar a altura da tela
     if (y + menuHeight > viewportHeight) {
-        y = viewportHeight - menuHeight - 5; // Ajusta com margem de 5px
+        y = viewportHeight - menuHeight - 10; // Ajusta com margem de 5px
     }
 
     contextMenu.style.left = `${x}px`;

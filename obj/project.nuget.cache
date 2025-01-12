@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BJdLpFkBlZk=",
+  "dgSpecHash": "lBtq4yEnqDI=",
   "success": true,
-  "projectFilePath": "C:\\Projetos\\PbiMonitoramento\\PowerBiIntegration\\PowerBiIntegration.csproj",
+  "projectFilePath": "E:\\Bibliotecas\\Eudes\\Downloads\\testen\\PowerBiIntegration\\PowerBiIntegration.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Eudes\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.11\\microsoft.aspnetcore.openapi.8.0.11.nupkg.sha512",
     "C:\\Users\\Eudes\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

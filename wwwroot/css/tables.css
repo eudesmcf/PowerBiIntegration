@@ -35,7 +35,7 @@
 
 /* Estilos para cabeçalhos da tabela */
 .table-container th {
-    background-color: #333333;
+    background-color: #1f2937;
     color: #ffffff;
 }
 
@@ -46,12 +46,12 @@
 
 /* Estilos para linhas da tabela no tema escuro */
 body.dark .table-container tr {
-    background-color: #2a2d2e;
+    background-color: #1f2937;
 }
 
 /* Estilos para o container da tabela no tema escuro */
 body.dark .table-container {
-    background-color: #2a2d2e;
+    background-color: #1f2937;
     color: white;
 }
 
@@ -64,7 +64,7 @@ body.dark .table-container td {
 
 /* Estilos para cabeçalhos da tabela no tema escuro */
 body.dark .table-container th {
-    background-color: #333333;
+    background-color: #1f2937;
 }
 
 /* Estilos para o container da tabela no tema claro */
@@ -91,7 +91,7 @@ body.light .table-container th {
 
 /* Estilos para linhas da tabela no tema escuro ao passar o mouse */
 body.dark .table-container tr:hover {
-    background-color: #3c3c3c;
+    background-color: #1f2937;
     color: white;
 }
 
@@ -115,7 +115,7 @@ body.light .table-container tr:hover {
 
 /* Tema escuro: fundo escuro e bordas escuras */
 body.dark .form-container {
-    background-color: #2a2d2e;
+    background-color: #2b3a4f;
     color: white;
     border-color: #444444;
 }
@@ -170,4 +170,28 @@ body.light .form-container {
     font-size: 13px;
     height: auto;
     /* Altura automática das células */
+}
+
+/* Centralizar o botão dentro da célula da coluna */
+.table-container .tags-column {
+    text-align: center;
+    /* Centraliza horizontalmente */
+    vertical-align: middle;
+    /* Centraliza verticalmente */
+}
+
+/* Ajuste do botão de tag */
+.table-container .tag-button {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #007acc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.table-container .tag-button:hover {
+    background-color: #005f99;
 }

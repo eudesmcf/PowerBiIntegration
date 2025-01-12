@@ -1,0 +1,27 @@
+.export-section {
+    position: fixed;
+    /* Fixa a box no final da tela */
+    top: 10px;
+    left: 0;
+    width: 100%;
+    padding: 10px 20px;
+    /* Sombra leve */
+    display: flex;
+    justify-content: flex-end;
+    /* Alinha o ícone à direita */
+    box-sizing: border-box;
+
+}
+
+.export-icon {
+    font-size: 24px;
+    /* Tamanho do ícone */
+    color: white;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.export-icon:hover {
+    color: #007bff;
+    /* Cor azul ao passar o mouse */
+}

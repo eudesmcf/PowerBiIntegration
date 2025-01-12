@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PowerBiIntegration")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+39ee99ddbb5c634b8a7edd3365c3d0ffc82c8ab1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b6e1f05f07d0cec5e3e55468531b2c67b052e75f")]
 [assembly: System.Reflection.AssemblyProductAttribute("PowerBiIntegration")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PowerBiIntegration")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

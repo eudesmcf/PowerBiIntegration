@@ -256,3 +256,11 @@
     background-color: #e9ecef;
     color: #007acc;
 }
+
+/* Remove a borda do botão de tag */
+.tag-button {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+}

@@ -1,6 +1,6 @@
 /* Temas */
 body.dark {
-    background-color: #464677;
+    background-color: #1f2937;
 }
 
 /* Tema claro: fundo branco */
@@ -50,7 +50,7 @@ body.light h1 {
 
     /* Tema escuro: cabeçalhos da tabela com fundo escuro */
     body.dark .table-container th {
-        background-color: #333333;
+        background-color: #1f2937;
     }
 
     /* Tema claro: texto escuro e bordas claras */
@@ -77,7 +77,7 @@ body.light h1 {
     font-size: 14px;
     border: 1px solid #444444;
     border-radius: 5px;
-    background-color: #1e1e1e;
+    background-color: #1f2937;
     color: white;
     box-sizing: border-box;
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
@@ -92,7 +92,7 @@ body.light h1 {
 
 /* Tema escuro: inputs e links */
 body.dark .form-container input[type="text"] {
-    background-color: #1e1e1e;
+    background-color: #1f2937;
     color: white;
     border-color: #444444;
 }
@@ -130,4 +130,41 @@ body.dark .form-container label {
 /* Tema claro: label com texto preto */
 body.light .form-container label {
     color: #000;
+}
+
+body.dark .table-container a:visited {
+    color: white;
+}
+
+body.light .table-container a:visited {
+    color: inherit;
+    /* Herdar a cor padrão do link */
+}
+
+body.dark .tag-button {
+    background-color: #007acc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+body.dark .tag-button:hover {
+    background-color: #005f99;
+}
+
+body.light .tag-button {
+    background-color: #007acc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+body.light .tag-button:hover {
+    background-color: #005f99;
 }

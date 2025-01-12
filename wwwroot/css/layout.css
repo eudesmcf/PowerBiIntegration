@@ -20,3 +20,13 @@
 .content .page h1 {
     margin-left: 2px;
 }
+
+body {
+    font-family: 'Inter';
+}
+
+.__Inter_aaf875 {
+    font-family: 'Inter';
+    font-weight: 600;
+    /* Ajuste o peso conforme necessário */
+}
