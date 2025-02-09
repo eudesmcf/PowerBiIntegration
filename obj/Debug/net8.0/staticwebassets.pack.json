@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\css\\components.css"
     },
     {
+      "Id": "E:\\Bibliotecas\\Eudes\\Downloads\\testen\\PowerBiIntegration\\wwwroot\\css\\export.css",
+      "PackagePath": "staticwebassets\\css\\export.css"
+    },
+    {
       "Id": "E:\\Bibliotecas\\Eudes\\Downloads\\testen\\PowerBiIntegration\\wwwroot\\css\\forms.css",
       "PackagePath": "staticwebassets\\css\\forms.css"
     },
@@ -27,10 +31,6 @@
     {
       "Id": "E:\\Bibliotecas\\Eudes\\Downloads\\testen\\PowerBiIntegration\\wwwroot\\css\\sidebar.css",
       "PackagePath": "staticwebassets\\css\\sidebar.css"
-    },
-    {
-      "Id": "E:\\Bibliotecas\\Eudes\\Downloads\\testen\\PowerBiIntegration\\wwwroot\\css\\styles.css",
-      "PackagePath": "staticwebassets\\css\\styles.css"
     },
     {
       "Id": "E:\\Bibliotecas\\Eudes\\Downloads\\testen\\PowerBiIntegration\\wwwroot\\css\\tables.css",

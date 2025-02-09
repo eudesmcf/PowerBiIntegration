@@ -45,15 +45,41 @@ async function fetchWorkspaces() {
 
 // Função para popular a tabela com os dados da API
 function populateTable(data) {
-    const tableBody = document.getElementById("groupsTable").querySelector("tbody");
+    const tableBody = document.getElementById("monitorTable").querySelector("tbody");
     tableBody.innerHTML = ""; // Limpa os dados existentes
 
-    data.forEach((workspace) => {
+    data.forEach((item) => {
         const row = document.createElement("tr");
-        row.innerHTML = `<td>${workspace.id}</td><td>${workspace.name}</td>`;
+        row.innerHTML = `
+            <td>${item.id}</td>
+            <td>${item.workspace}</td>
+            <td>${item.nomeObjeto}</td>
+            <td>${item.tipo}</td>
+            <td><a href="${item.link}" target="_blank">${item.link}</a></td>
+            <td class="consulta-column">
+                <span class="consulta-indicator" style="background-color: ${item.consulta ? 'green' : 'gray'};"></span>
+            </td>
+            <td class="retorno-column">
+                <span class="retorno-indicator" style="background-color: ${item.retorno ? 'green' : 'gray'};"></span>
+            </td>
+            <td class="tags-column">
+                <div class="hidden-tags" style="display: none;">${item.tags.join(', ')}</div>
+                <button class="tag-button">
+                    <i class="ri-price-tag-3-line"></i>
+                </button>
+            </td>
+            <td>
+                <label class="toggle-switch">
+                    <input type="checkbox" class="monitor-toggle" ${item.monitorar ? 'checked' : ''}/>
+                    <span class="slider"></span>
+                </label>
+            </td>
+        `;
+
         tableBody.appendChild(row);
     });
 }
+
 
 // Botão "Get Workspaces"
 document.getElementById("fetchGroups").addEventListener("click", fetchWorkspaces);
@@ -664,3 +690,28 @@ saveTagsButton.addEventListener("click", () => {
     tagModal.classList.remove("show"); // Fecha o modal
 });
 
+
+
+// Botão "Importar JSON"
+document.getElementById("importJson").addEventListener("click", () => {
+    const fileInput = document.createElement("input");
+    fileInput.type = "file";
+    fileInput.accept = ".json";
+
+    fileInput.addEventListener("change", async (event) => {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        try {
+            const content = await file.text();
+            const data = JSON.parse(content);
+            populateTable(data); // Preenche a tabela com os dados importados
+            alert("Importação concluída com sucesso!");
+        } catch (error) {
+            alert("Erro ao importar o arquivo. Verifique o formato do JSON.");
+            console.error("Erro na importação:", error);
+        }
+    });
+
+    fileInput.click();
+});

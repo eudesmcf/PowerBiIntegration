@@ -301,3 +301,13 @@
     margin: 10px auto;
     /* Centraliza a linha */
 }
+
+.sidebar ul li a:hover {
+    color: #6BB3D8;
+    transition: color 0.3s ease;
+}
+
+.sidebar ul li a:hover i {
+    color: #6BB3D8;
+    transition: color 0.3s ease;
+}

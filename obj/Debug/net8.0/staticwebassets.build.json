@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "e1ak1rJQ5l8M34PCLMfDzLr8RN0gfzJDGur83ihxMW8=",
+  "Hash": "9uQAdSR/T9XHwINRGhjje7XR2KeTb01WvwjiwBy2vA0=",
   "Source": "PowerBiIntegration",
   "BasePath": "_content/PowerBiIntegration",
   "Mode": "Default",
@@ -34,6 +34,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\components.css"
+    },
+    {
+      "Identity": "E:\\Bibliotecas\\Eudes\\Downloads\\testen\\PowerBiIntegration\\wwwroot\\css\\export.css",
+      "SourceId": "PowerBiIntegration",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Bibliotecas\\Eudes\\Downloads\\testen\\PowerBiIntegration\\wwwroot\\",
+      "BasePath": "_content/PowerBiIntegration",
+      "RelativePath": "css/export.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\export.css"
     },
     {
       "Identity": "E:\\Bibliotecas\\Eudes\\Downloads\\testen\\PowerBiIntegration\\wwwroot\\css\\forms.css",
@@ -148,25 +167,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\sidebar.css"
-    },
-    {
-      "Identity": "E:\\Bibliotecas\\Eudes\\Downloads\\testen\\PowerBiIntegration\\wwwroot\\css\\styles.css",
-      "SourceId": "PowerBiIntegration",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\Bibliotecas\\Eudes\\Downloads\\testen\\PowerBiIntegration\\wwwroot\\",
-      "BasePath": "_content/PowerBiIntegration",
-      "RelativePath": "css/styles.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\styles.css"
     },
     {
       "Identity": "E:\\Bibliotecas\\Eudes\\Downloads\\testen\\PowerBiIntegration\\wwwroot\\css\\tables.css",

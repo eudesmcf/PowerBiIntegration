@@ -25,3 +25,26 @@
     color: #007bff;
     /* Cor azul ao passar o mouse */
 }
+
+/* Botão de Importar */
+.import-btn {
+    background-color: #007acc;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover no Botão de Importar */
+.import-btn:hover {
+    background-color: #005f99;
+    transform: scale(1.05);
+}
+
+/* Foco no Botão de Importar */
+.import-btn:focus {
+    outline: 2px solid #007acc;
+}
